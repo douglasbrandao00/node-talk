@@ -1,8 +1,10 @@
 const router = require('express').Router()
 
-const login = require('./login')
+const sessionRoute = require('./sessionRoute')
+const contactRoute = require('./contactsRoute')
 
-router.use('/login', login)
-router.get('/*', (req, res) => res.send('bad gateway'))
+router.use('/session', sessionRoute)
+router.use('/contacts', contactRoute)
+router.get('/*', (req, res) => res.send('invalid endpoint'))
 
 module.exports = router
